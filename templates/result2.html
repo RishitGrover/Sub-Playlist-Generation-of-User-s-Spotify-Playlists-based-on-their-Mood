@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Classification of User's Music</title>
+
+		<script src="../static/js/jquery-3.5.1.js"></script>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->	
+		<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+	<!--===============================================================================================-->	
+		<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<!--===============================================================================================-->
+
+	
+
+	</head>
+	<style>
+		#myProgress {
+		  width: 100%;
+		  background-color: #ddd;
+		}
+
+		#myBar {
+		  width: 1%;
+		  height: 30px;
+		  background-color: #4CAF50;
+		}
+	</style>
+
+	<body>
+		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100" style="padding: 34px 150px 120px 160px; width: 600px; height: 105px" id="wrapLoginID">
+					<br />
+					<br />
+					<br />
+					<!--
+					<img src="image/test.jpg"></img>
+					<img src="image/test.jpg"></img>
+				-->
+					<br />
+					<br />
+					<br />
+					<form class="login100-form validate-form"  action = "http://localhost:5000/musicClassification" method = "POST">
+						<div class="container-login100-form-btn">
+							<button class="login100-form-btn" id="musicButton">
+								Press to Classify your Playlist
+							</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+		
+		
+
+		
+	<!--===============================================================================================-->	
+		<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+		<script src="../static/vendor/bootstrap/js/popper.js"></script>
+		<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+		<script src="../static/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+		<script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+		<script >
+			$('.js-tilt').tilt({
+				scale: 1.1
+			})
+		</script>
+	<!--===============================================================================================-->
+		<script src="../static/js/main.js"></script>
+
+	</body>
+</html>
+

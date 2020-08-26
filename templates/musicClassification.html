@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Music Classification</title>
+
+		<script src="../static/js/jquery-3.5.1.js"></script>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->	
+		<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+	<!--===============================================================================================-->	
+		<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+		<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+	<!--===============================================================================================-->
+
+	
+
+	</head>
+	<style>
+		#myProgress {
+		  width: 100%;
+		  background-color: #ddd;
+		}
+
+		#myBar {
+		  width: 1%;
+		  height: 30px;
+		  background-color: #4CAF50;
+		}
+	</style>
+	<body>
+		<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100" style="padding: 33px 130px 33px 95px;">
+					
+					<h2>Classifying your playlist into sub-playlists..</h2>
+					<br>
+					<br>
+					<div id="myProgress">
+					  <div id="myBar"></div>
+					</div>
+					<br>
+					<span id="sysStatus">{{ strNo }} </span>
+					<span>%</span>
+					<br />
+					<br />
+					<br />
+					<h5>While we sub-divide your playlist, here are some music facts for you!</h5>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+					<!-- <p id="musicFactsID" style="font-size: .67em; margin-top: 2.33em; margin-bottom: 2.33em; margin-left: 0; margin-right: 0; font-weight: bold;">{{ musicFact }}</p> -->
+					<h5 id="musicFactsID" style="margin-left: 100px">{{ musicFact }}</h5>
+					<br />
+					<br />
+					<p id="sStatus" style="font-weight: bold;">{{ acousticStatus }}</p>
+
+
+				</div>
+			</div>
+		</div>
+		
+		
+
+		
+	<!--===============================================================================================-->	
+		<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+		<script src="../static/vendor/bootstrap/js/popper.js"></script>
+		<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+		<script src="../static/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+		<script src="../static/vendor/tilt/tilt.jquery.min.js"></script>
+		<script >
+			$('.js-tilt').tilt({
+				scale: 1.1
+			})
+		</script>
+	<!--===============================================================================================-->
+		<script src="../static/js/main.js"></script>
+
+		<!-- Don't know if this is needed -->
+		<script>
+			var i = 0;
+			function move(thisValue) {
+			    var elem = document.getElementById("myBar");
+			     elem.style.width = parseInt(thisValue) + "%";
+			 }
+			
+		</script>
+
+		<script>
+			$(document).ready(function() {
+			    setInterval("ajaxd()",1000); // call every 1 seconds
+			});
+
+			function ajaxd() { 
+			  $("#sysStatus").load("/updateVal");
+			  $("#myBar").css({"width": $("#sysStatus").text()+"%"});
+
+			}
+		</script>
+
+
+		<script>
+			$(document).ready(function() {
+			    callMusicClassificationPart()
+			});
+
+			function callMusicClassificationPart() { 
+			  $("#sStatus").load("/musicClassificationRunning");
+			}
+		</script>
+
+		<script>
+			$(document).ready(function() {
+			    setInterval("musicFacts()",10000); // call every 10 seconds
+			});
+
+			function musicFacts() { 
+			  $("#musicFactsID").load("/musicFactsProgram");
+
+			}
+		</script>
+
+
+	</body>
+</html>
+
